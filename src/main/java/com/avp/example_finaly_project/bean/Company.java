@@ -36,11 +36,10 @@ public class Company implements Serializable {
     @JoinColumn(name = "cargo_id", nullable = false)
     private Cargo cargo;
 
-    public Company(Integer id, String name, City city, Status status, Cargo cargo) {
-        this.id = id;
-        this.name = name;
-        this.city = city;
-        this.status = status;
-        this.cargo = cargo;
-    }
+//    public Company(String name, City city, Status status, Cargo cargo) {
+//        this.name = name;
+//        this.city = city;
+//        this.status = status;
+//        this.cargo = cargo;
+//    }
 }

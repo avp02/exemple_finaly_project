@@ -1,11 +1,10 @@
 package com.avp.example_finaly_project.bean;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Data
 @Builder
@@ -13,10 +12,19 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "status")
-public class Status {
+public class Status implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "status_id")
     private Integer id;
+
+    @Column(name = "status_name", unique = true)
+    private String name;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "status", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Company> companies;
+
 }

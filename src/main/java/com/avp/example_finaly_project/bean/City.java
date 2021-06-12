@@ -3,6 +3,7 @@ package com.avp.example_finaly_project.bean;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Data
@@ -11,18 +12,18 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "city")
-public class City {
+public class City implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "city_id")
     private Integer id;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "city_name", unique = true)
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "city", cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<Company> companySet;
+    private Set<Company> companies;
 }
