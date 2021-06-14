@@ -27,4 +27,7 @@ public class Status implements Serializable {
     @EqualsAndHashCode.Exclude
     private Set<Company> companies;
 
+    public Status(String name) {
+        this.name = name;
+    }
 }

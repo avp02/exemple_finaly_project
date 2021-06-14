@@ -26,4 +26,8 @@ public class City implements Serializable {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Company> companies;
+
+    public City(String name) {
+        this.name = name;
+    }
 }

@@ -26,8 +26,8 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE Company s SET s.cargo = ?2, s.city = ?3, s.status = ?4 WHERE s.id = ?1")
-    void setNewData(Integer id, Cargo cargo, City city, Status status);
+    @Query(value = "UPDATE Company s SET s.cargo = ?2, s.city = ?3, s.status = ?4, s.name = ?5 WHERE s.id = ?1")
+    void setNewData(Integer id, Cargo cargo, City city, Status status, String name);
 
     @Query(value = "SELECT s FROM Company s WHERE s.name LIKE %?1%")
     List<Company> searchCompanyByName(String name);
