@@ -9,9 +9,9 @@ import java.util.List;
 
 @Repository
 public interface CityRepository extends JpaRepository<City, Integer> {
-
     List<City> findAll();
-
     City findByName(String name);
 
+    @Query(value = "select c from City c where c.id = ?1")
+    City getById(int id);
 }
